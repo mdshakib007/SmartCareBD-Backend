@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'patient',
     'service',
     'doctor',
+    'core',
 ]
 
 MIDDLEWARE = [
@@ -112,12 +113,8 @@ WSGI_APPLICATION = 'Hospital_Management_Backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'postgres',
-        'USER': env('DB_USER'),
-        'PASSWORD': env('DB_PASSWORD'),
-        'HOST': env('DB_HOST'),
-        'PORT': 6543,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 

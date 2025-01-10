@@ -3,7 +3,6 @@ from patient.models import Patient
 from django.contrib.auth.models import User
 
 class PatientSerializer(serializers.ModelSerializer):
-    user = serializers.StringRelatedField(many=False)
     class Meta:
         model = Patient
         fields = '__all__'
