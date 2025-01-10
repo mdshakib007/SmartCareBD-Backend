@@ -55,10 +55,18 @@ STAR_CHOICES = [
 ]
 class Review(models.Model):
     reviewer = models.ForeignKey(Patient, on_delete=models.CASCADE)
+    reviewer_name = models.CharField(max_length=100, blank=True, null=True)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     rating = models.CharField(max_length=20, choices=STAR_CHOICES)
 
+    def save(self, *args, **kwargs):
+        if self.reviewer:
+            f_name = self.reviewer.first_name
+            l_name = self.reviewer.last_name
+            self.full_name = f"{f_name} {l_name}"
+        super().save(*args, **kwargs)
+
     def __str__(self):
-        return f"Reviewer: {self.reviewer.user.first_name} | Doctor: {self.doctor.user.first_name} | Rating: {self.rating}"
+        return f"Reviewer: {self.reviewer_name} | Doctor: {self.doctor.user.first_name} | Rating: {self.rating}"
