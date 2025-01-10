@@ -62,7 +62,7 @@ class Review(models.Model):
     rating = models.CharField(max_length=20, choices=STAR_CHOICES)
 
     def save(self, *args, **kwargs):
-        if self.reviewer:
+        if self.reviewer.user:
             f_name = self.reviewer.user.first_name
             l_name = self.reviewer.user.last_name
             self.reviewer_name = f"{f_name} {l_name}"
