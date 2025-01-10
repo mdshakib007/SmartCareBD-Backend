@@ -63,8 +63,8 @@ class Review(models.Model):
 
     def save(self, *args, **kwargs):
         if self.reviewer:
-            f_name = self.reviewer.first_name
-            l_name = self.reviewer.last_name
+            f_name = self.reviewer.user.first_name
+            l_name = self.reviewer.user.last_name
             self.reviewer_name = f"{f_name} {l_name}"
         super().save(*args, **kwargs)
 
