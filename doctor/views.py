@@ -9,7 +9,7 @@ class SpecificDoctor(filters.BaseFilterBackend):
     def filter_queryset(self, request, query_set, view):
         doctor_id = request.query_params.get("doctor_id")
         if doctor_id:
-            return query_set.filter(available_time = doctor_id)
+            return query_set.filter(id = doctor_id)
         return query_set
 
 class DoctorViewSet(viewsets.ModelViewSet):
