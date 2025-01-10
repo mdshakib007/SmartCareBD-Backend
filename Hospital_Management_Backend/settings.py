@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-g33%avxaz+olyr_c&c(uje+*-bm!7a1h*l_4m#o1sugbfiw4ct
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
-CSRF_TRUSTED_ORIGINS = ['https://smartcare-bd007.onrender.com', 'https://*.127.0.0.1']
+ALLOWED_HOSTS = ["https://smartcarebd-backend.onrender.com", "https://*.127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ['https://smartcarebd-backend.onrender.com', 'https://*.127.0.0.1']
 
 
 # Application definition
