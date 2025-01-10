@@ -65,7 +65,7 @@ class Review(models.Model):
         if self.reviewer:
             f_name = self.reviewer.first_name
             l_name = self.reviewer.last_name
-            self.full_name = f"{f_name} {l_name}"
+            self.reviewer_name = f"{f_name} {l_name}"
         super().save(*args, **kwargs)
 
     def __str__(self):
