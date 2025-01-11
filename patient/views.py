@@ -33,7 +33,7 @@ class UserRegistrationAPIView(APIView):
 
             token = default_token_generator.make_token(user)
             uid = urlsafe_base64_encode(force_bytes(user.pk))
-            confirm_link = f"http://127.0.0.1:8000/patient/activate/{uid}/{token}"
+            confirm_link = f"https://smartcarebd-backend.onrender.com/patient/activate/{uid}/{token}"
             
             email_sub = "Confirm Your Email"
             email_body = render_to_string('patient/confirm_email.html', {"confirm_link" : confirm_link})
